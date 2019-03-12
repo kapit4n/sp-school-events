@@ -9,5 +9,6 @@
 * `./gradlew build`
 * `./gradlew bootRun`
 
-
+## Open app
+* `localhost:8080`
 
