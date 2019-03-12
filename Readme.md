@@ -6,6 +6,8 @@
 * 
 
 ## Run the application
-* `gradle bootRun`
+* `./gradlew build`
+* `./gradlew bootRun`
+
 
 
