@@ -12,3 +12,6 @@
 ## Open app
 * `localhost:8080`
 
+## Available resources
+* `/schoolyears`
+* `/courses`
