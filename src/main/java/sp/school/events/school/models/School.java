@@ -1,4 +1,4 @@
-package sp.school.events.school;
+package sp.school.events.school.models;
 
 public class School {
 
