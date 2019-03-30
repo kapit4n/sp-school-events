@@ -2,21 +2,24 @@ package sp.school.events.school.controllers;
 
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sp.school.events.school.models.SchoolYear;
+import sp.school.events.school.repositories.SchoolYearRepository;
 
 @RestController
+@RequestMapping("/api/v1")
 public class SchoolYearController {
 
-  private final AtomicLong counter = new AtomicLong();
+  @Autowired
+  private SchoolYearRepository repo;
 
-  @RequestMapping("/schoolyears")
-  public SchoolYear[] getAll() {
-    SchoolYear[] result = { new SchoolYear(counter.incrementAndGet(), "2017", new Date(), new Date(), true, false),
-        new SchoolYear(counter.incrementAndGet(), "2018", new Date(), new Date(), true, false), 
-        new SchoolYear(counter.incrementAndGet(), "2019", new Date(), new Date(), true, false) };
-    return result;
+  @RequestMapping("/years")
+  public List<SchoolYear> getAll() {
+    return repo.findAll();
   }
 }
