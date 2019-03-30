@@ -32,7 +32,7 @@ public class Course {
   /**
    * @return the achived
    */
-  @Column(name = "details", nullable = false)
+  @Column(name = "achived", nullable = false)
   public Boolean getAchived() {
     return achived;
   }
@@ -79,5 +79,7 @@ public class Course {
   public long getId() {
     return id;
   }
-
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
