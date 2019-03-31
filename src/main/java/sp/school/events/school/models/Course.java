@@ -29,6 +29,11 @@ public class Course {
     this.achived = achived;
   }
 
+  public Course()
+  {
+    
+  }
+
   /**
    * @return the achived
    */
