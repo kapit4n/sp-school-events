@@ -27,12 +27,13 @@ public class SchoolYear {
     private Boolean isCurrent;
     private Boolean isAchived;
 
-    public SchoolYear(long id, String year, Date startDate, Date endDate, Boolean isCurrent, Boolean isAchived) {
-        this.id = id;
+    public SchoolYear(String year, Date startDate, Date endDate, Boolean isCurrent, Boolean isAchived) {
         this.year = year;
         this.startDate = startDate;
         this.endDate = endDate;
         this.isCurrent = isCurrent;
         this.isAchived = isAchived;
     }
+
+    public SchoolYear() {}
 }

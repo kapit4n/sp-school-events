@@ -21,8 +21,7 @@ public class Course {
   private String details;
   private Boolean achived;
 
-  public Course(long id, String name, String details, Boolean achived) {
-    this.id = id;
+  public Course(String name, String details, Boolean achived) {
     this.name = name;
     this.details = details;
     this.achived = achived;
