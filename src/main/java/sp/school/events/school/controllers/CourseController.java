@@ -3,9 +3,11 @@ package sp.school.events.school.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,4 +41,22 @@ public class CourseController {
         .orElseThrow(() -> new CourseNotFoundException(id));
     }
     
+    @PutMapping("/courses/{id}")
+    Course update(@RequestBody Course newCourse, @PathVariable Long id) {
+        return this.repo.findById(id)
+            .map(course -> {
+                course.setName(newCourse.getName());
+                course.setDetails(newCourse.getDetails());
+                course.setAchived(newCourse.getAchived());
+                return repo.save(course);
+            }).orElseGet(() -> {
+                newCourse.setId(id);
+                return repo.save(newCourse);
+            });
+    }
+
+    @DeleteMapping("/courses/{id}")
+    void deleteCourse(@PathVariable Long id) {
+        repo.deleteById(id);
+    }
 }
