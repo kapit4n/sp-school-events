@@ -29,4 +29,6 @@ public class CourseController {
     public Course save(@RequestBody Course newCourse) {
         return repo.save(newCourse);
     }
+
+    
 }
